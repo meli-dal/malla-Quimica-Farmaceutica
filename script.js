@@ -90,6 +90,10 @@ const ramos = [
 const contenedor = document.getElementById('malla');
 const estadoRamos = {};
 
+// Cargar estado desde localStorage (si existe)
+const saved = localStorage.getItem("estadoRamos");
+const estadoRamos = saved ? JSON.parse(saved) : {};
+
 function renderizarMalla() {
   contenedor.innerHTML = '';
   ramos.forEach(ramo => {
@@ -104,6 +108,7 @@ function renderizarMalla() {
     div.innerText = ramo.nombre;
     div.onclick = () => {
       estadoRamos[ramo.nombre] = !estadoRamos[ramo.nombre];
+      localStorage.setItem("estadoRamos", JSON.stringify(estadoRamos));
       renderizarMalla();
     };
     contenedor.appendChild(div);
