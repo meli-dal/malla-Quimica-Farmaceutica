@@ -88,7 +88,6 @@ const ramos = [
 ];
 
 const contenedor = document.getElementById('malla');
-const estadoRamos = {};
 
 // Cargar estado desde localStorage (si existe)
 const saved = localStorage.getItem("estadoRamos");
