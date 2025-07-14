@@ -87,9 +87,8 @@ const ramos = [
   { nombre: "Práctica Profesional", requisitos: [] },
 ];
 
+// ✅ SOLO UNA VEZ:
 const contenedor = document.getElementById('malla');
-
-// Cargar estado desde localStorage (si existe)
 const saved = localStorage.getItem("estadoRamos");
 const estadoRamos = saved ? JSON.parse(saved) : {};
 
@@ -110,6 +109,7 @@ function renderizarMalla() {
       localStorage.setItem("estadoRamos", JSON.stringify(estadoRamos));
       renderizarMalla();
     };
+
     contenedor.appendChild(div);
   });
 }
